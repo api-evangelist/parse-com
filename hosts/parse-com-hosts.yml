@@ -1,0 +1,56 @@
+generated: '2026-10-22'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 4
+  own: 2
+  other_domain: 2
+  platform: 0
+  roles:
+  - api
+  - other
+  - website
+hosts:
+- host: api.parse.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: parse.com
+  role: api
+  relation: own
+- host: api.parseplatform.org
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: parseplatform.org
+  role: api
+  relation: other-domain
+- host: parse.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  serves:
+  - cdn
+  vendor: cloudflare
+  registrable_domain: parse.com
+  role: website
+  relation: own
+- host: parseplatform.org
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: parseplatform.org
+  role: other
+  relation: other-domain
